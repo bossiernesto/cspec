@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>cspec by pepita-remembrance</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>cspec</h1>
+        <h2>C/C++ specs for humans</h2>
+        <a href="https://github.com/pepita-remembrance/cspec" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a name="cspec---cc-specs-for-humans" class="anchor" href="#cspec---cc-specs-for-humans"><span class="octicon octicon-link"></span></a>cspec - C/C++ specs for humans</h1>
+
+<h3>
+<a name="in-a-nutshell" class="anchor" href="#in-a-nutshell"><span class="octicon octicon-link"></span></a>In a nutshell</h3>
+
+<div class="highlight highlight-c"><pre><span class="cp">#include &lt;cspec/cspec.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="n">describe</span><span class="p">(</span><span class="s">"Numbers"</span><span class="p">,</span> <span class="n">function</span> <span class="p">()</span> <span class="p">{</span>
+
+        <span class="n">it</span><span class="p">(</span><span class="s">"1 should be equals 1"</span><span class="p">,</span> <span class="n">function</span> <span class="p">()</span> <span class="p">{</span>
+           <span class="n">should_be_equals</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+        <span class="p">});</span>
+
+    <span class="p">});</span>
+
+    <span class="k">return</span> <span class="n">CSPEC_RESULT</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+
+<ul>
+<li><code>gcc numbers.c -o numbers -lcspec</code></li>
+<li>Run the example <code>./numbers</code>
+</li>
+</ul><div class="highlight highlight-bash"><pre>  Numbers
+    ✔ <span class="m">1</span> should be equals 1
+
+  <span class="m">1</span> Success
+</pre></div>
+
+<h3>
+<a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting started</h3>
+
+<h4>
+<a name="how-to-install-it" class="anchor" href="#how-to-install-it"><span class="octicon octicon-link"></span></a>How to install it?</h4>
+
+<ul>
+<li>Checkout this repo: <code>git checkout https://github.com/fedescarpa/cspec.git</code>
+</li>
+<li>Enter into cspec folder: <code>cd cspec</code>
+</li>
+<li>Build the project:<code>sudo make</code>
+</li>
+<li>Install: <code>sudo make install</code>
+</li>
+</ul><h4>
+<a name="how-to-uninstall-it" class="anchor" href="#how-to-uninstall-it"><span class="octicon octicon-link"></span></a>How to uninstall it?</h4>
+
+<ul>
+<li>Run: <code>sudo make clean uninstall</code>
+</li>
+</ul><h4>
+<a name="whats-next" class="anchor" href="#whats-next"><span class="octicon octicon-link"></span></a>What's next?</h4>
+
+<ul>
+<li>Write some code and some tests</li>
+<li>Compile your files using <code>-lcspec</code> to link the library, e.g. <code>gcc helloWorld.cpp -o helloWorld -lcspec</code>
+</li>
+<li>Run it, e.g. <code>./helloWorld</code>
+</li>
+<li>Add more features!</li>
+</ul><h4>
+<a name="help-me-eclipse-shows-error-everywhere" class="anchor" href="#help-me-eclipse-shows-error-everywhere"><span class="octicon octicon-link"></span></a>Help me, Eclipse shows error everywhere!</h4>
+
+<p>Have you added cspec as a library? Probably not, so let me help you with that:</p>
+
+<ul>
+<li>Right click on your project and choose <code>Properties</code>
+</li>
+<li>Go to <code>C/C++ Build -&gt; Settings -&gt; Tool Settings -&gt; GCC C++ Linker -&gt; Libraries</code>
+</li>
+<li>On the upper panel, <code>Libraries (-l)</code> press the add button and add <code>cspec</code>
+</li>
+</ul><h3>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h3>
+
+<h4>
+<a name="expectations-functions" class="anchor" href="#expectations-functions"><span class="octicon octicon-link"></span></a>Expectations functions</h4>
+
+<ul>
+<li><code>should_be_true(boolean)</code></li>
+<li><code>should_be_false(boolean)</code></li>
+<li><code>should_be_null(pointer)</code></li>
+<li><code>should_not_be_null(pointer)</code></li>
+<li><code>should_be_equals(expected, actual)</code></li>
+<li><code>should_not_be_equals(expected, actual)</code></li>
+<li><code>should_be_equals_strings(expected, actual)</code></li>
+<li><code>should_not_be_equals_strings(expected, actual)</code></li>
+</ul><h4>
+<a name="fluent-dslish-expectations" class="anchor" href="#fluent-dslish-expectations"><span class="octicon octicon-link"></span></a>Fluent DSLish expectations</h4>
+
+<ul>
+<li>In order
+
+<ol>
+<li><code>should(value)</code></li>
+<li><code>be | not_be | be_string</code></li>
+<li><code>truthy | falsey | equal(expected) | null</code></li>
+</ol>
+</li>
+</ul><div class="highlight highlight-c"><pre><span class="cp">#include &lt;cspec/cspec.h&gt;</span>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="n">describe</span><span class="p">(</span><span class="s">"describe 1"</span><span class="p">,</span> <span class="n">function</span> <span class="p">()</span> <span class="p">{</span>
+
+        <span class="kt">char</span><span class="o">*</span> <span class="n">world</span> <span class="o">=</span> <span class="s">"World"</span><span class="p">;</span>
+
+        <span class="n">it</span><span class="p">(</span><span class="s">"it 1"</span><span class="p">,</span> <span class="n">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="n">should</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="n">be</span> <span class="n">falsey</span><span class="p">;</span>
+        <span class="p">});</span>
+
+        <span class="n">it</span><span class="p">(</span><span class="s">"it 2"</span><span class="p">,</span> <span class="n">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="n">should</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">be</span> <span class="n">truthy</span><span class="p">;</span>
+        <span class="p">});</span>
+
+        <span class="n">describe</span><span class="p">(</span><span class="s">"describe 2"</span><span class="p">,</span> <span class="n">function</span> <span class="p">()</span> <span class="p">{</span>
+
+            <span class="n">it</span><span class="p">(</span><span class="s">"it 3"</span><span class="p">,</span> <span class="n">function</span> <span class="p">()</span> <span class="p">{</span>
+                <span class="n">should</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">be</span> <span class="n">equal</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+            <span class="p">});</span>
+
+            <span class="n">it</span><span class="p">(</span><span class="s">"it 4"</span><span class="p">,</span> <span class="n">function</span> <span class="p">()</span> <span class="p">{</span>
+                <span class="n">should</span><span class="p">(</span><span class="n">world</span><span class="p">)</span> <span class="n">be_string</span> <span class="n">equal</span><span class="p">(</span><span class="s">"World"</span><span class="p">);</span>
+            <span class="p">});</span>
+
+        <span class="p">});</span>
+
+    <span class="p">});</span>
+
+    <span class="k">return</span> <span class="n">CSPEC_RESULT</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+
+<p><strong>WARNING!</strong> The last line in the example (<code>return CSPEC_RESULT;</code>) prints the report and returns the exit code. If you forget to add it, you won't see anything</p>
+
+<h4>
+<a name="hook-methods-aka-setup--teardown" class="anchor" href="#hook-methods-aka-setup--teardown"><span class="octicon octicon-link"></span></a>Hook methods (aka Setup / TearDown)</h4>
+
+<p>Each "describe" have its own hooks.</p>
+
+<div class="highlight highlight-c"><pre><span class="cp">#include &lt;cspec/cspec.h&gt;</span>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="n">describe</span><span class="p">(</span><span class="s">"describe 1"</span><span class="p">,</span> <span class="n">function</span> <span class="p">()</span> <span class="p">{</span>
+
+        <span class="k">static</span> <span class="kt">int</span> <span class="n">mundo</span><span class="p">;</span>
+
+        <span class="n">before</span><span class="p">(</span><span class="n">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="n">puts</span><span class="p">(</span><span class="s">"BEFORE"</span><span class="p">);</span>
+            <span class="n">mundo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">});</span>
+
+        <span class="n">after</span><span class="p">(</span><span class="n">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="n">puts</span><span class="p">(</span><span class="s">"AFTER"</span><span class="p">);</span>
+        <span class="p">});</span>
+
+        <span class="n">it</span><span class="p">(</span><span class="s">"it 1"</span><span class="p">,</span> <span class="n">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="n">should_be_false</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="p">});</span>
+
+        <span class="n">it</span><span class="p">(</span><span class="s">"it 2"</span><span class="p">,</span> <span class="n">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="n">should_be_true</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="p">});</span>
+
+        <span class="n">describe</span><span class="p">(</span><span class="s">"describe 2"</span><span class="p">,</span> <span class="n">function</span> <span class="p">()</span> <span class="p">{</span>
+
+            <span class="n">it</span><span class="p">(</span><span class="s">"it 3"</span><span class="p">,</span> <span class="n">function</span> <span class="p">()</span> <span class="p">{</span>
+                <span class="n">should_be_equals</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">mundo</span><span class="p">);</span>
+            <span class="p">});</span>
+
+            <span class="n">skip</span><span class="p">(</span><span class="s">"it 4"</span><span class="p">,</span> <span class="n">function</span> <span class="p">()</span> <span class="p">{</span>
+                <span class="n">should_be_equals_strings</span><span class="p">(</span><span class="s">"MUNDO"</span><span class="p">,</span> <span class="n">mundo</span><span class="p">);</span>
+            <span class="p">});</span>
+
+        <span class="p">});</span>
+
+    <span class="p">});</span>
+
+    <span class="k">return</span> <span class="n">CSPEC_RESULT</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+
+<p>It prints the following report:</p>
+
+<pre><code>  describe 1
+BEFORE
+    ✖ it 1
+AFTER
+BEFORE
+    ✔ it 2
+AFTER
+    describe 2
+      ✔ it 3
+      • it 4 (WTF - SKIPPED)
+
+  2 Success
+  1 Pending
+  1 Failure
+</code></pre>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/pepita-remembrance/cspec/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/pepita-remembrance/cspec/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/pepita-remembrance/cspec"></a> is maintained by <a href="https://github.com/pepita-remembrance">pepita-remembrance</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
