@@ -80,7 +80,7 @@ In order to do that, follow these steps...
 1. Recompile the project
 
 ###¿What does CSpecs offer me?
-It offers you a seto of operations - based on [RSpec](http://rspec.info/) (Ruby), [Mocha](http://visionmedia.github.io/mocha/), [Jasmine](http://jasmine.github.io/) y [Karma](http://karma-runner.github.io/0.12/index.html) (JavaScript) - that allows you to make [oriented behavior](http://en.wikipedia.org/wiki/Behavior-driven_development) (unit and integration code) tests.
+It offers you a set of operations - based on [RSpec](http://rspec.info/) (Ruby), [Mocha](http://visionmedia.github.io/mocha/), [Jasmine](http://jasmine.github.io/) y [Karma](http://karma-runner.github.io/0.12/index.html) (JavaScript) - that allows you to make [oriented behavior](http://en.wikipedia.org/wiki/Behavior-driven_development) (unit and integration code) tests.
 
 ##¿How do i use the framework?
 
